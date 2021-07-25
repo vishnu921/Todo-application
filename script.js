@@ -26,6 +26,7 @@ let todosCount = todoList.length;
 // eventListener for SAVE button
 saveTodoButton.onclick = function() {
   localStorage.setItem("todoList", JSON.stringify(todoList));
+  removedItems = [];
 };
 
 //function to add a new todo task in the todo list
@@ -98,6 +99,7 @@ function onDeleteTodo(todoId) {
   });
 
   let deletedItem = todoList.splice(deleteElementIndex, 1);
+  //adding deleted items to removed item stack
   removedItems.push({
     item: deletedItem[0],
     index: deleteElementIndex
@@ -161,6 +163,7 @@ function createAndAppendTodo(todo) {
 //function to undo delete
 undoDeleteBtn.onclick = function(){
   if(removedItems.length === 0){
+    alert("No items deleted");
     return;
   }
   let deletedItem = removedItems.pop();
