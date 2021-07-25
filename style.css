@@ -3,9 +3,8 @@
   background: #b92b27;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #9815c0, #bd412c);
   background: linear-gradient(to right, #9414bb, #bd412c);
-   font-family: cursive;
-    height: 100vh;
-  /* background-color: #f9fbfe; */
+  font-family: cursive;
+  min-height: 100vh;
 }
 
 /* Heading elements' styling */
@@ -31,6 +30,7 @@
 }
 
 .todo-items-heading {
+  margin-top: 50px;
   color: white;
   font-size: 32px;
   font-weight: 700;
@@ -67,12 +67,16 @@
   border-width: 0px;
   border-radius: 4px;
   margin-top: 20px;
-  margin-bottom: 50px;
   padding: 5px 15px 5px 15px;
 }
 
+
 .button:active{
   transform: scale(0.95);
+}
+
+#undoDeleteBtn{
+  background-color: #005d88;
 }
 
 #addTodoButton{

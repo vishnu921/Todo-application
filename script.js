@@ -6,6 +6,7 @@ let colorArray = ['#FF6633', '#ff8787', '#FF33FF', '#FFFF99', '#00B3E6','#f5c347
 let todoItemsContainer = document.getElementById("todoItemsContainer");
 let addTodoButton = document.getElementById("addTodoButton");
 let saveTodoButton = document.getElementById("saveTodoButton");
+let undoDeleteBtn =document.getElementById('undoDeleteBtn');
 
 // function to get the saved todoList from local storage
 function getTodoListFromLocalStorage() {
@@ -19,6 +20,7 @@ function getTodoListFromLocalStorage() {
 }
 
 let todoList = getTodoListFromLocalStorage();
+let removedItems = [];
 let todosCount = todoList.length;
 
 // eventListener for SAVE button
@@ -95,7 +97,11 @@ function onDeleteTodo(todoId) {
     }
   });
 
-  todoList.splice(deleteElementIndex, 1);
+  let deletedItem = todoList.splice(deleteElementIndex, 1);
+  removedItems.push({
+    item: deletedItem[0],
+    index: deleteElementIndex
+  });
 }
 
 //function to create and add todo item in HTML using DOM manipulation
@@ -146,15 +152,29 @@ function createAndAppendTodo(todo) {
   deleteIcon.classList.add("far", "fa-trash-alt", "delete-icon");
 
   deleteIcon.onclick = function () {
-    let confirmed = confirm("Do You want to delete?");
-    if(confirmed === true){
       onDeleteTodo(todoId);
-    }
   };
 
   deleteIconContainer.appendChild(deleteIcon);
 }
 
-for (let todo of todoList) {
-  createAndAppendTodo(todo);
+//function to undo delete
+undoDeleteBtn.onclick = function(){
+  if(removedItems.length === 0){
+    return;
+  }
+  let deletedItem = removedItems.pop();
+  let todoItem = deletedItem.item;
+  let deletedItemIndex = deletedItem.index;
+  todoList.splice(deletedItemIndex, 0, todoItem);
+  todoItemsContainer.innerHTML = "";
+  createList();
 }
+
+function createList(){
+  for (let todo of todoList) {
+    createAndAppendTodo(todo);
+  }
+}
+
+createList();
