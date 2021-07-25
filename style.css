@@ -1,14 +1,14 @@
 
 .todos-bg-container {
   background: #b92b27;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #9815c0, #bd412c);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #9414bb, #bd412c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
+  background: -webkit-linear-gradient(to right, #9815c0, #bd412c);
+  background: linear-gradient(to right, #9414bb, #bd412c);
    font-family: cursive;
     height: 100vh;
   /* background-color: #f9fbfe; */
 }
+
+/* Heading elements' styling */
 
 .todos-heading {
   color: white;
@@ -82,6 +82,8 @@ background: linear-gradient(to right, #9414bb, #bd412c); /* W3C, IE 10+/ Edge, F
 #saveTodoButton{
   background-color: #308adf;
 }
+
+/* Todo Items styling */
 
 .label-container {
   color: white;
