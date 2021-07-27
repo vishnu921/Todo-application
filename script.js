@@ -106,6 +106,27 @@ function onDeleteTodo(todoId) {
   });
 }
 
+//function to edit todo item
+function onEditTodo(labelId){
+  let updatedTask = prompt("Enter updated task:");
+  if(updatedTask === null || updatedTask === ""){
+    return;
+  }
+  let labelElement = document.getElementById(labelId);
+  labelElement.textContent = updatedTask;
+  
+  let updatedItemIndex = todoList.findIndex(function(eachTodo){
+    let eachLabel = "label" + eachTodo.uniqueNo;
+    if(eachLabel === labelId){
+      return true;
+    } else{
+      return false;
+    }
+  });
+
+  todoList[updatedItemIndex].text = updatedTask;
+}
+
 //function to create and add todo item in HTML using DOM manipulation
 function createAndAppendTodo(todo) {
   let todoId = "todo" + todo.uniqueNo;
@@ -145,19 +166,29 @@ function createAndAppendTodo(todo) {
   }
   labelContainer.appendChild(labelElement);
 
-  let deleteIconContainer = document.createElement("div");
-  deleteIconContainer.classList.add("delete-icon-container");
-  deleteIconContainer.setAttribute('title', 'Delete Task');
-  labelContainer.appendChild(deleteIconContainer);
+  let iconsContainer = document.createElement('div');
+  iconsContainer.classList.add('icons-container');
+  labelContainer.appendChild(iconsContainer);
+
+  let editIcon = document.createElement('i');
+  editIcon.classList.add('fas', 'fa-edit', 'icon');
+  editIcon.setAttribute('title', 'Edit task');
+
+  editIcon.onclick = function(){
+    onEditTodo(labelId);
+  }
+
+  iconsContainer.appendChild(editIcon);
 
   let deleteIcon = document.createElement("i");
-  deleteIcon.classList.add("far", "fa-trash-alt", "delete-icon");
+  deleteIcon.classList.add("far", "fa-trash-alt", "icon");
+  deleteIcon.setAttribute('title', 'Delete Task');
 
   deleteIcon.onclick = function () {
       onDeleteTodo(todoId);
   };
 
-  deleteIconContainer.appendChild(deleteIcon);
+  iconsContainer.appendChild(deleteIcon);
 }
 
 //function to undo delete

@@ -118,12 +118,12 @@
   cursor: pointer;
 }
 
-.delete-icon-container {
+.icons-container {
   text-align: right;
   width: 18%;
 }
 
-.delete-icon {
+.icon {
   cursor: pointer;
   padding: 15px;
 }
