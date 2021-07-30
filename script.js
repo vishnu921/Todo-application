@@ -40,11 +40,12 @@ function onAddTodo() {
   }
 
   todosCount = todosCount + 1;
-
+  let colorIndex = Math.floor(Math.random()*50);
   let newTodo = {
     text: userInputValue,
     uniqueNo: todosCount,
-    isChecked: false
+    isChecked: false,
+    color: colorArray[colorIndex]+'66'
   };
   todoList.push(newTodo);
   createAndAppendTodo(newTodo);
@@ -152,8 +153,7 @@ function createAndAppendTodo(todo) {
 
   let labelContainer = document.createElement("div");
   labelContainer.classList.add("label-container", "d-flex", "flex-row");
-  let colorIndex = Math.floor(Math.random()*100)%50;
-  labelContainer.style.backgroundColor = colorArray[colorIndex]+"66";
+  labelContainer.style.backgroundColor = todo.color;
   todoElement.appendChild(labelContainer);
 
   let labelElement = document.createElement("label");
