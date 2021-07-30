@@ -3,7 +3,7 @@
   background: #b92b27;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #9815c0, #bd412c);
   background: linear-gradient(to right, #9414bb, #bd412c);
-  font-family: cursive;
+  font-family: 'Comic Sans MS';
   min-height: 100vh;
 }
 
