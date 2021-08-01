@@ -25,6 +25,11 @@ let todosCount = todoList.length;
 
 // eventListener for SAVE button
 saveTodoButton.onclick = function() {
+  //this loop is to update the ids of elements in todoList since some items may
+  //been deleted
+  for(let i = 0; i < todoList.length; i++){
+    todoList[i].uniqueNo = i+1;
+  }
   localStorage.setItem("todoList", JSON.stringify(todoList));
   removedItems = [];
 };

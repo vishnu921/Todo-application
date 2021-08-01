@@ -1,7 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
 
 .todos-bg-container {
   background: #b92b27;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #9815c0, #bd412c);
+  background: -webkit-linear-gradient(to right, #9414bb, #bd412c);
   background: linear-gradient(to right, #9414bb, #bd412c);
   font-family: 'Comic Sans MS';
   min-height: 100vh;
@@ -108,7 +109,7 @@
 .checkbox-label {
   font-size: 16px;
   font-weight: 400;
-  width: 82%;
+  width: 70%;
   margin: 0px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -120,7 +121,7 @@
 
 .icons-container {
   text-align: right;
-  width: 18%;
+  width: 30%;
 }
 
 .icon {
